@@ -3,9 +3,9 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#define LED_DDR		DDRA				///< DDR of indicator LED.
-#define LED_PORT	PORTA				///< Port of indicator LED.
-#define LED_PIN		PA0					///< Pin of indicator LED.
+#define LED_DDR		DDRA			///< DDR of indicator LED.
+#define LED_PORT	PORTA			///< Port of indicator LED.
+#define LED_PIN		PA0			///< Pin of indicator LED.
 
 void PORT_INIT(void);
 void COMPARATOR_INIT(void);
@@ -22,7 +22,7 @@ int main(void){
 	PORT_INIT();
 	COMPARATOR_INIT();
 	
-	sei();								///< Enable global interrupts.
+	sei();					///< Enable global interrupts.
 	
 	while(1);
 }
@@ -40,6 +40,6 @@ void PORT_INIT(void){
  */
 
 void COMPARATOR_INIT(void){
-	ACSR = 0x00;						///< Enable Analog Comparator by setting ACD to 0.
+	ACSR = 0x00;				///< Enable Analog Comparator by setting ACD to 0.
 	ACSR |= (1<<ACIE)|(1<<ACIS1);		///< Enable Analog Comparator Interrupt and set Interrupt Mode to Falling Output Edge.
 }
